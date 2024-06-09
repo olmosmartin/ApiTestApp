@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding //nombre de la clase con activity al inicio y binding al final
     private lateinit var retrofit: Retrofit
+    private lateinit var pokemonesAdapter: RVPokemonsAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -44,8 +45,10 @@ class MainActivity : AppCompatActivity() {
             override fun onQueryTextChange(newText: String?): Boolean {
                 return false
             }
-
         })
+
+        pokemonesAdapter = RVPokemonsAdapter(emptyList(), ::onPokemonSelected)
+        binding.rvPokemonsList.adapter = pokemonesAdapter
     }
 
     private fun searchByName(query: String) {
@@ -75,6 +78,7 @@ class MainActivity : AppCompatActivity() {
                     Log.i("POKEMON", "funciona")
                     Log.i("POKEMON", "" + call.body().toString())
                     runOnUiThread {
+                        pokemonesAdapter.updateList(call.body()?.pokemons ?: emptyList())
                         binding.pbLoading.isVisible = false
                     }
                 } else {
@@ -89,6 +93,15 @@ class MainActivity : AppCompatActivity() {
                 binding.pbLoading.isVisible = false
             }
         }
+    }
+
+    private fun onPokemonSelected(index: Int) {
+        Log.i("POKEMON", "Seleccionado: $index")
+        actualizarPokemones()
+    }
+
+    private fun actualizarPokemones() {
+        pokemonesAdapter.notifyDataSetChanged()
     }
 
     private fun getRetrofit(): Retrofit {
