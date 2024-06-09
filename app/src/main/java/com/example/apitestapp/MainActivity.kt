@@ -5,14 +5,14 @@ import android.util.Log
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import com.example.apitestapp.constantes.EnumRegion
+import com.example.apitestapp.constantes.Constantes
 import com.example.apitestapp.databinding.ActivityMainBinding
 import com.example.apitestapp.services.ApiService
+import com.example.apitestapp.services.RetrofitClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //pongo esto acá para que solo se ejecute una vez en el render de la pantalla
-        retrofit = getRetrofit()
+        retrofit = RetrofitClient.getRetrofitPokeapi()
 
         initUI()
     }
@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
     private fun searchByGeneration(query: String) {
         binding.pbLoading.isVisible = true
         //obtengo el id de la region segun su nombre
-        val regionId = EnumRegion.map[query.lowercase()]
+        val regionId = Constantes.map[query.lowercase()]
         if(regionId != null) {
             CoroutineScope(Dispatchers.IO).launch {
                 val call = retrofit.create(ApiService::class.java).getPokemonsByGeneration(regionId.toString())
@@ -104,11 +104,4 @@ class MainActivity : AppCompatActivity() {
         pokemonesAdapter.notifyDataSetChanged()
     }
 
-    private fun getRetrofit(): Retrofit {
-        return Retrofit
-            .Builder()
-            .baseUrl("https://pokeapi.co/api/v2/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
 }

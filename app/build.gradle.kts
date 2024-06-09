@@ -50,6 +50,9 @@ dependencies {
     implementation(libs.retrofit) //se puede importar la libreria llamando gradle/libs.versions.toml
     implementation("com.squareup.retrofit2:converter-gson:2.9.0") //otra forma de importar la libreria sin llamar a gradle/libs.versions.toml
 
+    //picasso para mostrar imagenes desde url
+    implementation ("com.squareup.picasso:picasso:2.8")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

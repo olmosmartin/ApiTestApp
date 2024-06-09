@@ -2,24 +2,35 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp"
+    tools:backgroundTint="@color/black"
     app:cardCornerRadius="16dp">
 
+    <ImageView
+        android:id="@+id/imPokemon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="end"
-        android:orientation="horizontal"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
         android:padding="10dp">
 
         <TextView
             android:id="@+id/tvPokemonNombre"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:background="@color/textBackground"
             android:paddingHorizontal="50dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold"
             tools:text="Prueba" />

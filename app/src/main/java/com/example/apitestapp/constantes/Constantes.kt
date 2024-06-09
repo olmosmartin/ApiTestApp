@@ -1,7 +1,7 @@
 package com.example.apitestapp.constantes
 
-class EnumRegion {
-    companion object RegionMap {
+class Constantes {
+    companion object {
         val map = mapOf(
             "kanto" to 1,
             "johto" to 2,
@@ -12,5 +12,8 @@ class EnumRegion {
             "alola" to 7,
             "galar" to 8
         )
+        fun getPokemonImageUrl(pokemonName: String): String {
+            return "https://img.pokemondb.net/artwork/$pokemonName.jpg"
+        }
     }
 }
