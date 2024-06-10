@@ -15,10 +15,10 @@
         android:theme="@style/Theme.ApiTestApp"
         tools:targetApi="31">
         <activity
-            android:name=".DetalleActivity"
+            android:name=".vista.detalle.DetalleActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".vista.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

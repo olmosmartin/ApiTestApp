@@ -1,4 +1,4 @@
-package com.example.apitestapp
+package com.example.apitestapp.vista.detalle
 
 import android.os.Bundle
 import android.widget.SearchView

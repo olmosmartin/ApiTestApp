@@ -1,8 +1,9 @@
-package com.example.apitestapp
+package com.example.apitestapp.vista.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.apitestapp.R
 import com.example.apitestapp.model.Pokemon
 
 class RVPokemonsAdapter(

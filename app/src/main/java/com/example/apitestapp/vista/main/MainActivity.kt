@@ -1,4 +1,4 @@
-package com.example.apitestapp
+package com.example.apitestapp.vista.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +10,7 @@ import com.example.apitestapp.constantes.Constantes
 import com.example.apitestapp.databinding.ActivityMainBinding
 import com.example.apitestapp.services.ApiService
 import com.example.apitestapp.services.RetrofitClient
+import com.example.apitestapp.vista.detalle.DetalleActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
