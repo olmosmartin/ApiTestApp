@@ -7,7 +7,7 @@ import com.example.apitestapp.model.Pokemon
 
 class RVPokemonsAdapter(
     var pokemones: List<Pokemon> = emptyList(),
-    private val onPokemonSelected: (Int) -> Unit
+    private val onPokemonSelected: (String) -> Unit
 ) :
     RecyclerView.Adapter<RVPokemonsViewHolder>() {
 
@@ -25,7 +25,7 @@ class RVPokemonsAdapter(
         holder.render(pokemones[position])
         //uso itemview para acceder a la celda que se renderiza
         holder.itemView.setOnClickListener {
-            onPokemonSelected(position)
+            onPokemonSelected(pokemones[position].name)
         }
     }
 

@@ -15,5 +15,6 @@ class Constantes {
         fun getPokemonImageUrl(pokemonName: String): String {
             return "https://img.pokemondb.net/artwork/$pokemonName.jpg"
         }
+        const val POKEMON_NAME = "POKEMON_NAME"
     }
 }

@@ -5,7 +5,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
     private var retrofitPokeApi: Retrofit? = null
-    private var retrofitGetImagePokemonApi: Retrofit? = null
 
     fun getRetrofitPokeapi(): Retrofit {
         if (retrofitPokeApi == null) {

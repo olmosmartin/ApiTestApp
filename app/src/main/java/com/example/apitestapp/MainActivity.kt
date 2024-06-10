@@ -1,5 +1,6 @@
 package com.example.apitestapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.SearchView
@@ -95,13 +96,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun onPokemonSelected(index: Int) {
-        Log.i("POKEMON", "Seleccionado: $index")
-        actualizarPokemones()
+    private fun onPokemonSelected(name: String) {
+        Log.i("POKEMON", "Seleccionado: $name")
+        navegarPrimerBoton(name)
     }
 
-    private fun actualizarPokemones() {
-        pokemonesAdapter.notifyDataSetChanged()
+    private fun navegarPrimerBoton(pokemonName: String) {
+        val intent = Intent(this, DetalleActivity::class.java)
+        intent.putExtra(Constantes.POKEMON_NAME, pokemonName)
+        startActivity(intent)
     }
-
 }
