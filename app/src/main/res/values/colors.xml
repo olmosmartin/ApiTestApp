@@ -6,4 +6,13 @@
     <!-- item pokemon card colors -->
 
     <color name="textBackground">#A90D38D5</color>
+
+    <color name="hp">#26FF00</color>
+    <color name="attack">#75ABFB</color>
+    <color name="defense">#FF5722</color>
+    <color name="sattack">#002093</color>
+    <color name="sdefense">#FF0000</color>
+    <color name="speed">#FFC552</color>
+
+
 </resources>

@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity() {
         binding.svBuscador.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             //cuando se da enter
             override fun onQueryTextSubmit(query: String?): Boolean {
-                //searchByName(query.orEmpty())
                 searchByGeneration(query.orEmpty())
                 return false
             }
@@ -51,21 +50,6 @@ class MainActivity : AppCompatActivity() {
 
         pokemonesAdapter = RVPokemonsAdapter(emptyList(), ::onPokemonSelected)
         binding.rvPokemonsList.adapter = pokemonesAdapter
-    }
-
-    private fun searchByName(query: String) {
-        CoroutineScope(Dispatchers.IO).launch {
-            val call = retrofit.create(ApiService::class.java).getPokemonByName(query)
-
-            if (call.isSuccessful) {
-                Log.i("POKEMON", "funciona")
-                Log.i("POKEMON", call.body().toString())
-            } else {
-                Log.i("POKEMON", "error")
-                val errorBody = call.errorBody()?.string()
-                Log.e("POKEMON", "Error: ${call.code()} - $errorBody")
-            }
-        }
     }
 
     private fun searchByGeneration(query: String) {

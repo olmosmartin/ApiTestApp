@@ -7,14 +7,177 @@
     android:layout_height="match_parent"
     tools:context=".vista.detalle.DetalleActivity">
 
-    <TextView
-        android:id="@+id/tvPokemonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="pruebaa"
-        app:layout_constraintTop_toTopOf="parent"
+    <ImageView
+        android:id="@+id/ivPokemonDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
+        android:src="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/textBackground"
+        app:layout_constraintBottom_toTopOf="@+id/ivPokemonDetalle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvPokemonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="45dp"
+            android:paddingVertical="20dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:text="nombrepokemon" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/textBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivPokemonDetalle">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <View
+                    android:id="@+id/hp"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:backgroundTint="@color/hp" />
+
+                <View
+                    android:id="@+id/attack"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:backgroundTint="@color/attack" />
+
+                <View
+                    android:id="@+id/defense"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:backgroundTint="@color/defense" />
+
+                <View
+                    android:id="@+id/specialattack"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_weight="1"
+
+                    android:background="@color/white"
+                    android:backgroundTint="@color/sattack" />
+
+                <View
+                    android:id="@+id/specialdefense"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:backgroundTint="@color/sdefense" />
+
+                <View
+                    android:id="@+id/speed"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:backgroundTint="@color/speed" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom">
+
+                <TextView
+                    android:id="@+id/tvhp"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:text="HP" />
+
+                <TextView
+                    android:id="@+id/tvattack"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:text="Attack" />
+
+                <TextView
+                    android:id="@+id/tvdefense"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:text="Defense" />
+
+                <TextView
+                    android:id="@+id/tvspecialattack"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:text="s.Attack" />
+
+                <TextView
+                    android:id="@+id/tvspecialdefense"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:text="s.Defense" />
+
+                <TextView
+                    android:id="@+id/tvspeed"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:text="Speed" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
