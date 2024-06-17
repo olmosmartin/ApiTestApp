@@ -16,5 +16,7 @@ class Constantes {
             return "https://img.pokemondb.net/artwork/$pokemonName.jpg"
         }
         const val POKEMON_NAME = "POKEMON_NAME"
+        const val DARK_MODE = "DARK_MODE"
+        const val BLUETOOTH = "BLUETOOTH"
     }
 }

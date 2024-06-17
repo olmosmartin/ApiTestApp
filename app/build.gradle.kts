@@ -33,6 +33,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    //agrego dependencia para poder usar viewBinding
     viewBinding {
         enable = true
     }
@@ -52,6 +53,9 @@ dependencies {
 
     //picasso para mostrar imagenes desde url
     implementation ("com.squareup.picasso:picasso:2.8")
+
+    //importo fragment
+    implementation("androidx.fragment:fragment-ktx:1.8.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -15,6 +15,9 @@
         android:theme="@style/Theme.ApiTestApp"
         tools:targetApi="31">
         <activity
+            android:name=".vista.ajustes.AjustesActivity"
+            android:exported="false" />
+        <activity
             android:name=".vista.detalle.DetalleActivity"
             android:exported="false" />
         <activity

@@ -10,6 +10,7 @@ import com.example.apitestapp.constantes.Constantes
 import com.example.apitestapp.databinding.ActivityMainBinding
 import com.example.apitestapp.services.ApiService
 import com.example.apitestapp.services.RetrofitClient
+import com.example.apitestapp.vista.ajustes.AjustesActivity
 import com.example.apitestapp.vista.detalle.DetalleActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -50,6 +51,10 @@ class MainActivity : AppCompatActivity() {
 
         pokemonesAdapter = RVPokemonsAdapter(emptyList(), ::onPokemonSelected)
         binding.rvPokemonsList.adapter = pokemonesAdapter
+
+        binding.ivSettings.setOnClickListener {
+            navegarAjustes()
+        }
     }
 
     private fun searchByGeneration(query: String) {
@@ -89,6 +94,11 @@ class MainActivity : AppCompatActivity() {
     private fun navegarPrimerBoton(pokemonName: String) {
         val intent = Intent(this, DetalleActivity::class.java)
         intent.putExtra(Constantes.POKEMON_NAME, pokemonName)
+        startActivity(intent)
+    }
+
+    private fun navegarAjustes() {
+        val intent = Intent(this, AjustesActivity::class.java)
         startActivity(intent)
     }
 }

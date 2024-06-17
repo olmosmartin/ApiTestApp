@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ApiTestApp</string>
+
+    <string name="moTitulo">Modo oscuro</string>
+    <string name="moSubtitulo">Activa el modo oscuro</string>
+    <string name="bTitulo">Bluetooth</string>
+    <string name="bSubtitulo">Activa para conectarte</string>
+
 </resources>
