@@ -5,5 +5,9 @@
     <string name="moSubtitulo">Activa el modo oscuro</string>
     <string name="bTitulo">Bluetooth</string>
     <string name="bSubtitulo">Activa para conectarte</string>
+    <string name="sTitulo">Cambiar volumen</string>
+    <string name="vTitulo">Vibración</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

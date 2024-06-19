@@ -19,6 +19,9 @@ import com.example.apitestapp.vista.componentes.OptionFragment.Companion.ARG_ID
 import com.example.apitestapp.vista.componentes.OptionFragment.Companion.ARG_OPTION
 import com.example.apitestapp.vista.componentes.OptionFragment.Companion.ARG_SUBTITULO
 import com.example.apitestapp.vista.componentes.OptionFragment.Companion.ARG_TITULO
+import com.example.apitestapp.vista.componentes.SliderFragment
+import com.example.apitestapp.vista.componentes.SliderFragment.Companion.ARG_ICONO_SLIDER
+import com.example.apitestapp.vista.componentes.SliderFragment.Companion.ARG_TITULO_SLIDER
 
 class AjustesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAjustesBinding //nombre de la clase con activity al inicio y binding al final
@@ -56,6 +59,7 @@ class AjustesActivity : AppCompatActivity() {
             add<OptionFragment>(R.id.fcOptionDarkMode, args = bundleDarkMode)
         }
 
+        //------------------------------------------------------
         //creo bundle para el fragment de bluetooth
         val bundleBluetooth = bundleOf(
             ARG_ID to Constantes.BLUETOOTH,
@@ -68,6 +72,32 @@ class AjustesActivity : AppCompatActivity() {
         supportFragmentManager.commit {
             setReorderingAllowed(true)
             add<OptionFragment>(R.id.fcOptionBluetooth, args = bundleBluetooth)
+        }
+
+        //------------------------------------------------------
+        //creo bundle para el fragment de slider
+        val bundleSlider = bundleOf(
+            ARG_TITULO_SLIDER to getString(R.string.sTitulo),
+            ARG_ICONO_SLIDER to R.drawable.ic_music,
+        )
+        //agrego fragment
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            add<SliderFragment>(R.id.fcSlider, args = bundleSlider)
+        }
+
+        //------------------------------------------------------
+        //creo bundle para el fragment de vibracion
+        val bundlevibracion = bundleOf(
+            ARG_ID to Constantes.VIBRATION,
+            ARG_TITULO to getString(R.string.vTitulo),
+            ARG_ICONO to R.drawable.ic_contactless,
+            ARG_OPTION to true
+        )
+        //agrego fragment
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            add<OptionFragment>(R.id.fcOptionVibracion, args = bundlevibracion)
         }
     }
 
@@ -84,10 +114,17 @@ class AjustesActivity : AppCompatActivity() {
             Constantes.BLUETOOTH -> {
                 Log.i("tag", "bluetooth")
             }
+            Constantes.VIBRATION -> {
+                Log.i("tag", "vibracion")
+            }
             else -> {
                 Log.i("tag", "error")
             }
         }
         Log.i("tag", "isSwitchOn: $checked")
+    }
+
+    fun onSliderValueChanged(value: Float) {
+        Log.i("tag", "value: $value")
     }
 }

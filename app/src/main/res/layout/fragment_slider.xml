@@ -3,14 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".vista.componentes.OptionFragment">
+    tools:context=".vista.componentes.SliderFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <!-- android:layout_weight="1"-->
         <ImageView
             android:id="@+id/imIcono"
             android:layout_width="50dp"
@@ -21,7 +20,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="4"
             android:orientation="vertical">
 
             <TextView
@@ -33,28 +32,14 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvSubtitulo"
-                android:layout_width="wrap_content"
+            <com.google.android.material.slider.RangeSlider
+                android:id="@+id/rsSlider"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="texto ejemplo subtitulo"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <!--android:layout_weight="1"-->
-        <LinearLayout
-            android:id="@+id/llOption"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:gravity="center"
-
-            android:orientation="vertical">
-
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swSwitch"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content" />
+                android:max="100"
+                android:stepSize="1"
+                android:valueFrom="0"
+                android:valueTo="100" />
 
         </LinearLayout>
 
