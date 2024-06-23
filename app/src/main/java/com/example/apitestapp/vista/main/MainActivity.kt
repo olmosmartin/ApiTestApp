@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.isVisible
 import com.example.apitestapp.constantes.Constantes
 import com.example.apitestapp.databinding.ActivityMainBinding
+import com.example.apitestapp.datastore.SetingsDataStoreSingleton
 import com.example.apitestapp.services.ApiService
 import com.example.apitestapp.services.RetrofitClient
 import com.example.apitestapp.vista.ajustes.AjustesActivity
@@ -22,12 +24,27 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding //nombre de la clase con activity al inicio y binding al final
     private lateinit var retrofit: Retrofit
     private lateinit var pokemonesAdapter: RVPokemonsAdapter
+    private val settingsDataStore = SetingsDataStoreSingleton.getInstance(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         //viewBinding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        if (savedInstanceState == null){//esta comprobacion es para que no se renderice multiples veces si cambio la orientacion del celular entre horizontal y vertical
+            CoroutineScope(Dispatchers.IO).launch {
+                settingsDataStore.getSettings().collect { settings ->
+                    runOnUiThread {
+                        if (settings.darkMode) {
+                            enableDarkMode()
+                        } else {
+                            disableDarkMode()
+                        }
+                    }
+                }
+            }
+        }
 
         //pongo esto acá para que solo se ejecute una vez en el render de la pantalla
         retrofit = RetrofitClient.getRetrofitPokeapi()
@@ -95,5 +112,14 @@ class MainActivity : AppCompatActivity() {
     private fun navegarAjustes() {
         val intent = Intent(this, AjustesActivity::class.java)
         startActivity(intent)
+    }
+    fun enableDarkMode () {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        delegate.applyDayNight()
+    }
+
+    fun disableDarkMode () {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        delegate.applyDayNight()
     }
 }

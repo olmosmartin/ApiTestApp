@@ -32,7 +32,7 @@
             android:paddingHorizontal="45dp"
             android:paddingVertical="20dp"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/statTextColor"
             android:textSize="25sp"
             android:textStyle="bold"
             tools:text="nombrepokemon" />
@@ -127,7 +127,7 @@
                     android:layout_height="30dp"
                     android:layout_marginHorizontal="3dp"
                     android:layout_weight="1"
-                    android:textColor="@color/white"
+                    android:textColor="@color/statTextColor"
                     android:text="HP" />
 
                 <TextView
@@ -136,7 +136,7 @@
                     android:layout_height="30dp"
                     android:layout_marginHorizontal="3dp"
                     android:layout_weight="1"
-                    android:textColor="@color/white"
+                    android:textColor="@color/statTextColor"
                     android:text="Attack" />
 
                 <TextView
@@ -145,7 +145,7 @@
                     android:layout_height="30dp"
                     android:layout_marginHorizontal="3dp"
                     android:layout_weight="1"
-                    android:textColor="@color/white"
+                    android:textColor="@color/statTextColor"
                     android:text="Defense" />
 
                 <TextView
@@ -154,7 +154,7 @@
                     android:layout_height="30dp"
                     android:layout_marginHorizontal="3dp"
                     android:layout_weight="1"
-                    android:textColor="@color/white"
+                    android:textColor="@color/statTextColor"
                     android:text="s.Attack" />
 
                 <TextView
@@ -163,7 +163,7 @@
                     android:layout_height="30dp"
                     android:layout_marginHorizontal="3dp"
                     android:layout_weight="1"
-                    android:textColor="@color/white"
+                    android:textColor="@color/statTextColor"
                     android:text="s.Defense" />
 
                 <TextView
@@ -172,7 +172,7 @@
                     android:layout_height="30dp"
                     android:layout_marginHorizontal="3dp"
                     android:layout_weight="1"
-                    android:textColor="@color/white"
+                    android:textColor="@color/statTextColor"
                     android:text="Speed" />
 
 

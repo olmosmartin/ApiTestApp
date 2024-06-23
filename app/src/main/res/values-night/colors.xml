@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FFFFFFFF</color>
+    <color name="white">#FF000000</color>
+
 
     <!-- item pokemon card colors -->
 
     <color name="textBackground">#A90D38D5</color>
 
     <color name="statTextColor">#FFFFFFFF</color>
-
     <color name="hp">#26FF00</color>
     <color name="attack">#75ABFB</color>
     <color name="defense">#FF5722</color>

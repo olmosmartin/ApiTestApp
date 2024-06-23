@@ -30,7 +30,7 @@
             android:background="@color/textBackground"
             android:paddingHorizontal="50dp"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/statTextColor"
             android:textSize="25sp"
             android:textStyle="bold"
             tools:text="Prueba" />

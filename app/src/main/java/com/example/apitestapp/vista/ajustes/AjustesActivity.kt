@@ -3,6 +3,7 @@ package com.example.apitestapp.vista.ajustes
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.bundleOf
 import androidx.fragment.app.add
 import com.example.apitestapp.R
@@ -43,6 +44,11 @@ class AjustesActivity : AppCompatActivity() {
             CoroutineScope(Dispatchers.IO).launch {
                 settingsDataStore.getSettings().filter{firstTime}.collect { settings ->
                     runOnUiThread {
+                        if (settings.darkMode) {
+                            enableDarkMode()
+                        } else {
+                            disableDarkMode()
+                        }
                         renderFragments(settings.volumen, settings.bluetooth, settings.vibracion, settings.darkMode)
                         firstTime = !firstTime
                     }
@@ -160,5 +166,15 @@ class AjustesActivity : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO).launch {
             settingsDataStore.saveVolumen(value.toInt())
         }
+    }
+
+    fun enableDarkMode () {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        delegate.applyDayNight()
+    }
+
+    fun disableDarkMode () {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        delegate.applyDayNight()
     }
 }
