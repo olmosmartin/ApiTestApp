@@ -10,6 +10,7 @@ import retrofit2.http.Path
 interface ApiService {
 
     @GET("pokemon/{name}")
+    //se pone suspend porque es para llamar en una corrutina
     suspend fun getPokemonByName(@Path("name") name: String): Response<PokemonStats>
 
     @GET("generation/{id}")

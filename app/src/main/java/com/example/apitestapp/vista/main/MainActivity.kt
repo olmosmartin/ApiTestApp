@@ -66,20 +66,16 @@ class MainActivity : AppCompatActivity() {
                 val call = retrofit.create(ApiService::class.java).getPokemonsByGeneration(regionId.toString())
 
                 if (call.isSuccessful) {
-                    Log.i("POKEMON", "funciona")
-                    Log.i("POKEMON", "" + call.body().toString())
                     runOnUiThread {
                         pokemonesAdapter.updateList(call.body()?.pokemons ?: emptyList())
                         binding.pbLoading.isVisible = false
                     }
                 } else {
-                    Log.i("POKEMON", "error")
                     val errorBody = call.errorBody()?.string()
                     Log.e("POKEMON", "Error: ${call.code()} - $errorBody")
                 }
             }
         } else {
-            Log.i("POKEMON", "región no válida")
             runOnUiThread {
                 binding.pbLoading.isVisible = false
             }
@@ -87,7 +83,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onPokemonSelected(name: String) {
-        Log.i("POKEMON", "Seleccionado: $name")
         navegarPrimerBoton(name)
     }
 

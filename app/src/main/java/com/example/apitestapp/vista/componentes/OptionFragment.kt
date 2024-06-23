@@ -1,12 +1,10 @@
 package com.example.apitestapp.vista.componentes
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.SwitchCompat
 import com.example.apitestapp.R
 import com.example.apitestapp.databinding.FragmentOptionBinding
 import com.example.apitestapp.vista.ajustes.AjustesActivity
@@ -18,6 +16,7 @@ class OptionFragment : Fragment() {
     private var subtitulo: String? = null
     private var icono: Int? = null
     private var opcion: Boolean? = null
+    private var sliderValue: Boolean? = false
 
     private var _binding: FragmentOptionBinding? = null
     private val binding get() = _binding!!
@@ -30,6 +29,7 @@ class OptionFragment : Fragment() {
             subtitulo = it.getString(ARG_SUBTITULO)
             icono = it.getInt(ARG_ICONO)
             opcion = it.getBoolean(ARG_OPTION)
+            sliderValue = it.getBoolean(ARG_SWITCH_VALUE)
         }
     }
 
@@ -56,6 +56,7 @@ class OptionFragment : Fragment() {
         binding.tvSubtitulo.text = subtitulo
         binding.imIcono.setImageResource(icono ?: R.drawable.ic_not_found)
         binding.llOption.visibility = if (opcion == true) View.VISIBLE else View.GONE
+        binding.swSwitch.isChecked = sliderValue ?: false
 
         // Establece el listener para el Switch si la opcion de mostrar switch esta en true
         if (opcion == true) {
@@ -72,6 +73,7 @@ class OptionFragment : Fragment() {
         const val ARG_SUBTITULO = "subtitulo"
         const val ARG_ICONO = "icono"
         const val ARG_OPTION = "opcion"
+        const val ARG_SWITCH_VALUE = "sliderValue"
 
         //antes se usaba el newInstance para pasar parametros
         //pero ahora se usa bundle, igual lo voy a dejar como ejemplo

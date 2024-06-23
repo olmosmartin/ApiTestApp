@@ -13,6 +13,7 @@ import com.example.apitestapp.vista.ajustes.AjustesActivity
 class SliderFragment : Fragment() {
     private var titulo: String? = null
     private var icono: Int? = null
+    private var volumenlvl: Float? = null
 
     private var _binding: FragmentSliderBinding? = null
     private val binding get() = _binding!!
@@ -20,8 +21,9 @@ class SliderFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            titulo = it.getString(OptionFragment.ARG_TITULO)
-            icono = it.getInt(OptionFragment.ARG_ICONO)
+            titulo = it.getString(ARG_TITULO_SLIDER)
+            icono = it.getInt(ARG_ICONO_SLIDER)
+            volumenlvl = it.getFloat(ARG_VOLUMEN_LVL)
         }
     }
 
@@ -46,6 +48,7 @@ class SliderFragment : Fragment() {
     private fun initUI() {
         binding.tvTitulo.text = titulo
         binding.imIcono.setImageResource(icono ?: R.drawable.ic_not_found)
+        binding.rsSlider.values = listOf(volumenlvl) ?: listOf(0f)
 
         // Establece el listener para el Slider
         binding.rsSlider.addOnChangeListener { slider, value, fromUser ->
@@ -57,13 +60,15 @@ class SliderFragment : Fragment() {
     companion object {
         const val ARG_TITULO_SLIDER = "titulo"
         const val ARG_ICONO_SLIDER = "icono"
+        const val ARG_VOLUMEN_LVL = "volumenlvl"
 
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(param1: String, param2: String, param3: Float) =
             SliderFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_TITULO_SLIDER, param1)
                     putString(ARG_ICONO_SLIDER, param2)
+                    putFloat(ARG_VOLUMEN_LVL, param3)
                 }
             }
     }

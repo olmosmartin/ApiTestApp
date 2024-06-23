@@ -57,6 +57,9 @@ dependencies {
     //importo fragment
     implementation("androidx.fragment:fragment-ktx:1.8.0")
 
+    // DataStore
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

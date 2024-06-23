@@ -16,8 +16,15 @@ class Constantes {
             return "https://img.pokemondb.net/artwork/$pokemonName.jpg"
         }
         const val POKEMON_NAME = "POKEMON_NAME"
+
         const val DARK_MODE = "DARK_MODE"
         const val BLUETOOTH = "BLUETOOTH"
         const val VIBRATION = "VIBRATION"
+
+        const val VOLUMEN_DS = "VOLUMEN_DS"
+        const val DARK_MODE_DS = "DARK_MODE_DS"
+        const val BLUETOOTH_DS = "BLUETOOTH_DS"
+        const val VIBRATION_DS = "VIBRATION_DS"
+
     }
 }
